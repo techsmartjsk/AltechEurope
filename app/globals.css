@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+}
+
+html,
+body {
+  background: #05070D;
+  color: #E6EAF2;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: #64e89c;
+  color: #05070D;
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0A0E1A; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #64e89c, #03c99a);
+  border-radius: 10px;
+}
+
+.noise {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.35'/></svg>");
+}
+
+.glow-text {
+  background: linear-gradient(90deg, #64e89c 0%, #57ffef 45%, #ffffff 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+.grid-lines {
+  background-image:
+    linear-gradient(to right, rgba(100, 232, 156, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(100, 232, 156, 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.card-border {
+  background:
+    linear-gradient(#0A0E1A, #0A0E1A) padding-box,
+    linear-gradient(135deg, rgba(100,232,156,0.6), rgba(87,255,239,0.15) 40%, rgba(255,255,255,0.05)) border-box;
+  border: 1px solid transparent;
+}
