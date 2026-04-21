@@ -143,48 +143,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team */}
-      <section className="relative px-6 py-16">
-        <div className="mx-auto max-w-6xl">
-          <p className="text-xs uppercase tracking-[0.3em] text-mint-400">
-            / Team
-          </p>
-          <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight md:text-5xl">
-            Operators, not influencers.
-          </h2>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {[
-              { n: "Maren Holt", r: "Chief Executive", b: "ex-Flow Traders" },
-              { n: "Idris Laurent", r: "Chief Technology", b: "ex-Coinbase, ex-Monzo" },
-              { n: "Anja Kowalski", r: "Head of Compliance", b: "ex-BaFin" },
-            ].map((p, i) => (
-              <motion.div
-                key={p.n}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-ink-900/40 p-6"
-              >
-                <div className="flex h-48 items-center justify-center rounded-2xl bg-gradient-to-br from-mint-400/20 via-glow/10 to-transparent">
-                  <span className="font-display text-6xl font-bold text-white/70">
-                    {p.n
-                      .split(" ")
-                      .map((x) => x[0])
-                      .join("")}
-                  </span>
-                </div>
-                <div className="mt-4">
-                  <p className="font-display text-lg font-semibold">{p.n}</p>
-                  <p className="text-sm text-mint-400">{p.r}</p>
-                  <p className="mt-1 text-xs text-white/50">{p.b}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="px-6 py-24">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-4xl font-semibold md:text-5xl">

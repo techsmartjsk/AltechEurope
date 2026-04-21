@@ -4,25 +4,34 @@ import Link from "next/link";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import Marquee from "@/components/Marquee";
+import PartnerProducts from "@/components/PartnerProducts";
 
 export default function Home() {
   return (
     <>
       <Hero />
       <Marquee />
+      <PartnerProducts/>
       <Features />
-
       {/* Process */}
       <section className="relative px-6 py-24">
         <div className="mx-auto max-w-6xl">
-          <p className="text-xs uppercase tracking-[0.3em] text-mint-400">
-            / Onboarding
-          </p>
-          <h2 className="mt-3 max-w-2xl font-display text-4xl font-semibold tracking-tight md:text-5xl">
-            From intro call to first trade in a week.
-          </h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-12"
+          >
+            <p className="text-xs uppercase tracking-[0.3em] text-mint-400">
+              / Onboarding
+            </p>
+            <h2 className="mt-3 max-w-2xl font-display text-4xl font-semibold tracking-tight md:text-5xl">
+              From intro call to first trade in a week.
+            </h2>
+          </motion.div>
 
-          <div className="mt-16 grid gap-8 md:grid-cols-4">
+          <div className="grid gap-4 md:grid-cols-4">
             {[
               { n: "01", t: "Introduction", d: "A 30-minute call to understand your flow, volume and jurisdiction." },
               { n: "02", t: "KYC & KYB", d: "Digital compliance review with our in-house team. Typically <72h." },
@@ -31,16 +40,17 @@ export default function Home() {
             ].map((s, i) => (
               <motion.div
                 key={s.n}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="relative border-l border-white/10 pl-6"
+                transition={{ duration: 0.5, delay: i * 0.07 }}
+                whileHover={{ y: -6 }}
+                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-ink-900/40 p-6 backdrop-blur-md transition hover:border-mint-400/50"
               >
-                <span className="absolute -left-[5px] top-1 h-2.5 w-2.5 rounded-full bg-mint-400 shadow-[0_0_20px_#64e89c]" />
-                <p className="font-display text-sm text-mint-400">{s.n}</p>
-                <h3 className="mt-2 font-display text-xl font-semibold">{s.t}</h3>
-                <p className="mt-2 text-sm text-white/60">{s.d}</p>
+                <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-mint-400/10 blur-3xl transition group-hover:bg-mint-400/25" />
+                <p className="font-display text-sm font-semibold text-mint-400">{s.n}</p>
+                <h3 className="mt-3 font-display text-xl font-semibold">{s.t}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/60">{s.d}</p>
               </motion.div>
             ))}
           </div>
@@ -55,9 +65,9 @@ export default function Home() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="relative overflow-hidden rounded-3xl border border-mint-400/20 bg-gradient-to-br from-ink-800 to-ink-950 p-12 md:p-20"
+            className="card-border relative overflow-hidden rounded-3xl p-12 md:p-20"
           >
-            <div className="absolute -top-40 -right-20 h-[400px] w-[400px] rounded-full bg-mint-400/30 blur-[120px]" />
+            <div className="absolute -top-40 -right-20 h-[400px] w-[400px] rounded-full bg-mint-400/10 blur-[120px]" />
             <div className="relative">
               <h2 className="max-w-2xl font-display text-4xl font-semibold tracking-tight md:text-6xl">
                 Ready to move <span className="glow-text">institutional capital</span>?
