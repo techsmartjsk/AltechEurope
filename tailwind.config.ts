@@ -9,17 +9,28 @@ const config: Config = {
     extend: {
       colors: {
         ink: {
-          950: "#05070D",
-          900: "#0A0E1A",
-          800: "#111728",
-          700: "#1A2238",
+          950: "#0A1428",
+          900: "#0F1E3A",
+          800: "#162440",
+          700: "#1E3A5F",
         },
+        blue: {
+          primary: "#1657FF",
+          light: "#4F80FF",
+          pale: "#EEF2FF",
+          subtle: "#F0F4FF",
+        },
+        cyan: {
+          accent: "#00C8FF",
+          light: "#E0F7FF",
+        },
+        // keep mint as alias so existing classes still work
         mint: {
-          400: "#64e89c",
-          500: "#00ffc2",
-          600: "#03c99a",
+          400: "#1657FF",
+          500: "#0B4EF0",
+          600: "#0A3FD0",
         },
-        glow: "#57ffef",
+        glow: "#00C8FF",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "ui-sans-serif", "system-ui"],

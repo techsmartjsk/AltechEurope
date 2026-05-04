@@ -14,23 +14,23 @@ const tokens = [
 export default function Marquee() {
   const items = [...tokens, ...tokens, ...tokens];
   return (
-    <div className="relative overflow-hidden border-y border-white/10 bg-ink-900/40 py-4">
+    <div className="relative overflow-hidden border-y border-blue-100 bg-blue-subtle py-3.5">
       <div className="flex w-max animate-marquee gap-10 whitespace-nowrap">
         {items.map((t, i) => (
           <div key={i} className="flex items-center gap-3 text-sm">
-            <span className="font-display font-semibold text-white">{t.s}</span>
+            <span className="font-display font-bold text-ink-950">{t.s}</span>
             <span
               className={
                 t.v.startsWith("+")
-                  ? "text-mint-400"
+                  ? "font-normal text-mint-400"
                   : t.v.startsWith("-")
-                  ? "text-rose-400"
-                  : "text-white/60"
+                  ? "font-normal text-rose-500"
+                  : "font-normal text-ink-900/50"
               }
             >
               {t.v}
             </span>
-            <span className="text-white/20">◆</span>
+            <span className="text-ink-900/20">◆</span>
           </div>
         ))}
       </div>

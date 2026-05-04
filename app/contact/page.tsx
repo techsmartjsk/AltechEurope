@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import { useState } from "react";
 import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
 
@@ -7,72 +6,58 @@ export default function ContactPage() {
   const [sent, setSent] = useState(false);
 
   return (
-    <section className="relative px-6 pt-40 pb-24">
+    <section className="hero-gradient px-6 pt-40 pb-24">
       <div className="mx-auto grid max-w-6xl gap-16 md:grid-cols-2">
         {/* Left */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          <p className="text-xs uppercase tracking-[0.3em] text-mint-400">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-mint-400">
             / Let's talk
           </p>
-          <h1 className="mt-4 font-display text-5xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
+          <h1 className="mt-4 font-display text-5xl font-black leading-[1.05] tracking-tight text-ink-950 md:text-6xl">
             Start a <span className="glow-text">conversation.</span>
           </h1>
-          <p className="mt-6 max-w-md text-white/60">
+          <p className="mt-6 max-w-md font-light text-ink-900/60">
             Whether you're onboarding a fund, launching a product, or just want
             a second opinion on settlement — reach out. We read every message.
           </p>
 
-          <div className="mt-12 space-y-5">
+          <div className="mt-12 space-y-4">
             {[
               { i: Mail, l: "Email", v: "hello@altech.eu" },
               { i: Phone, l: "Dealing desk", v: "+31 20 000 0000" },
               { i: MapPin, l: "Offices", v: "Amsterdam · Zürich · London" },
             ].map((x) => (
-              <motion.div
+              <div
                 key={x.l}
-                whileHover={{ x: 4 }}
-                className="flex items-center gap-4 rounded-2xl border border-white/10 bg-ink-900/40 p-4 backdrop-blur-md"
+                className="flex items-center gap-4 rounded-2xl border border-blue-100 bg-white p-4 shadow-sm"
               >
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-mint-400/10 text-mint-400">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-pale text-mint-400">
                   <x.i size={18} />
                 </span>
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-white/40">
+                  <p className="text-xs font-bold uppercase tracking-widest text-ink-900/40">
                     {x.l}
                   </p>
-                  <p className="text-sm text-white">{x.v}</p>
+                  <p className="text-sm font-normal text-ink-950">{x.v}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Right - Form */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="card-border relative rounded-3xl p-8"
-        >
+        <div className="card-border rounded-3xl bg-white p-8 shadow-md">
           {sent ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="flex flex-col items-center justify-center py-16 text-center"
-            >
+            <div className="flex flex-col items-center justify-center py-16 text-center">
               <CheckCircle2 className="text-mint-400" size={56} />
-              <h3 className="mt-6 font-display text-2xl font-semibold">
+              <h3 className="mt-6 font-display text-2xl font-black text-ink-950">
                 Message received.
               </h3>
-              <p className="mt-2 max-w-sm text-white/60">
+              <p className="mt-2 max-w-sm font-light text-ink-900/60">
                 A member of our desk will reply within one business day. For
                 urgent dealing inquiries, call us directly.
               </p>
-            </motion.div>
+            </div>
           ) : (
             <form
               onSubmit={(e) => {
@@ -81,7 +66,7 @@ export default function ContactPage() {
               }}
               className="space-y-5"
             >
-              <h2 className="font-display text-2xl font-semibold">
+              <h2 className="font-display text-2xl font-black text-ink-950">
                 Send us a message
               </h2>
 
@@ -103,10 +88,10 @@ export default function ContactPage() {
               />
 
               <div>
-                <label className="mb-2 block text-xs uppercase tracking-widest text-white/60">
+                <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-ink-900/50">
                   Interest
                 </label>
-                <select className="w-full rounded-xl border border-white/10 bg-ink-900/60 px-4 py-3 text-sm text-white outline-none transition focus:border-mint-400">
+                <select className="w-full rounded-xl border border-blue-100 bg-white px-4 py-3 text-sm text-ink-950 outline-none transition focus:border-mint-400 focus:ring-2 focus:ring-mint-400/10">
                   <option>OTC & Liquidity</option>
                   <option>Custody</option>
                   <option>Payment rails</option>
@@ -116,33 +101,31 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label className="mb-2 block text-xs uppercase tracking-widest text-white/60">
+                <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-ink-900/50">
                   Message
                 </label>
                 <textarea
                   rows={4}
                   placeholder="Tell us about your flow, timelines, or questions."
-                  className="w-full resize-none rounded-xl border border-white/10 bg-ink-900/60 px-4 py-3 text-sm text-white placeholder:text-white/30 outline-none transition focus:border-mint-400"
+                  className="w-full resize-none rounded-xl border border-blue-100 bg-white px-4 py-3 text-sm text-ink-950 placeholder:text-ink-900/30 outline-none transition focus:border-mint-400 focus:ring-2 focus:ring-mint-400/10"
                 />
               </div>
 
-              <motion.button
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.98 }}
+              <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-mint-400 px-6 py-3.5 font-semibold text-ink-950 transition hover:bg-glow"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-mint-400 px-6 py-3.5 font-bold text-white shadow-lg shadow-mint-400/30 transition hover:bg-mint-500 hover:scale-[1.01] active:scale-[0.98]"
               >
                 <Send size={16} />
                 Send message
-              </motion.button>
+              </button>
 
-              <p className="text-center text-xs text-white/40">
+              <p className="text-center text-xs font-light text-ink-900/40">
                 By submitting, you agree to our processing of the data
                 provided. Institutional inquiries only.
               </p>
             </form>
           )}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -161,14 +144,14 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-2 block text-xs uppercase tracking-widest text-white/60">
+      <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-ink-900/50">
         {label}
       </label>
       <input
         name={name}
         type={type}
         placeholder={placeholder}
-        className="w-full rounded-xl border border-white/10 bg-ink-900/60 px-4 py-3 text-sm text-white placeholder:text-white/30 outline-none transition focus:border-mint-400"
+        className="w-full rounded-xl border border-blue-100 bg-white px-4 py-3 text-sm text-ink-950 placeholder:text-ink-900/30 outline-none transition focus:border-mint-400 focus:ring-2 focus:ring-mint-400/10"
       />
     </div>
   );
